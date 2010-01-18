@@ -1,0 +1,87 @@
+/* $Id: layout.css,v 1.1.2.2 2009/03/12 12:25:37 psynaptic Exp $ */
+
+/* Layout */
+
+#page {
+  width: 980px;
+  margin: 0 auto;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+  background-color: #314348;
+
+}
+
+#content {
+  width: 960px;
+  margin: 0 auto;
+  
+}
+#site-name {
+  font-size: 2em;
+}
+
+#slogan {
+  display: block;
+}
+
+#header {
+	background: url("../images/header-bk.png") #587584 no-repeat top left;
+	height: 221px;
+	padding: 20px;
+  
+}
+
+#header-right {
+  float: right;
+}
+
+.sidebar {
+  float: left;
+  width: 220px;
+}
+
+#left {
+  margin-right: 20px;
+  clear: left;
+}
+
+#centre {
+  float: left;
+  margin-bottom: 1em;
+  width: 900px;
+}
+
+#right {
+  margin-left: 20px;
+}
+
+.two-sidebars #centre,
+.sidebar-right #centre {
+  padding-right: 20px;
+}
+
+.two-sidebars #centre {
+  width: 420px;
+}
+
+.sidebar-left #centre {
+  width: 710px;
+  padding-right: 0;
+}
+
+.sidebar-right #centre {
+  width: 640px;
+}
+#footer-message, #footer-message {
+  background: url("../images/footer-bk.png") #314348 no-repeat top left;
+	height: 180px;
+	padding: 10px;
+	padding-top: 60px;
+	color: #FFF;
+}
+
+#footer,
+#footer-message {
+  font-size: 0.9em;
+  clear: both;
+}

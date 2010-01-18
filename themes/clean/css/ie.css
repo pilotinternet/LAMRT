@@ -1,0 +1,16 @@
+/* $Id: ie.css,v 1.1.2.1 2009/03/08 11:48:15 psynaptic Exp $ */
+
+pre {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0 1em 0;
+}
+
+fieldset {
+  background: none;
+}
+
+input.form-text {
+	padding: 1px 2px;
+}

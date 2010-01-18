@@ -1,0 +1,196 @@
+/* $Id: style.css,v 1.1.2.11 2009/03/13 00:58:30 psynaptic Exp $ */
+
+/* Add your custom CSS here */
+
+#block-menu-primary-links li {
+  border-bottom: 1px #fff solid;
+  border-left: 1px #fff solid;
+  border-right: 1px #fff solid;
+}
+
+#block-menu-primary-links li.first {
+  border-top: 1px #fff solid;
+}
+
+
+#block-menu-primary-links a {
+	background: url(../images/side-nav-bk.png) no-repeat;
+	padding: 8px 0 8px 15px;
+}
+
+#block-menu-primary-links a.active, #block-menu-primary-links a:hover {
+	background: url(../images/side-nav-bk.png) no-repeat;
+	background-position: 0 -35px;
+}
+#search-block-form .container-inline label {
+  display: none;
+}
+#search-block-form {
+  padding-top: 150px;
+  
+}
+#search-block-form  input {
+  border: 1px #001827 solid;
+  padding: 3px;
+  background-color: #FFF;
+  color: #001827;
+}
+
+.block {
+  color: #FFF;
+}
+#content img {
+  border: 1px #fff solid;
+}
+
+.page-admin, .page-admin a, .page-admin td, .page-admin p {
+  color: #000;
+}
+.node-incident {
+  color: #FFF;
+}
+.node-webform {
+  color: #FFF; 
+}
+
+/*Incident View Theme*/
+.view-content {
+  color: #FFF;
+}
+.views-field-field-incident-number-value{
+  width: 65px;
+  height: 58px;
+  text-align: center;
+  padding-top: 20px;
+  color: #001827;
+  background: url(../images/incident-note.png) no-repeat;
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.field-field-incident-number {
+  width: 65px;
+  height: 58px;
+  text-align: center;
+  padding-top: 20px;
+  color: #001827;
+  background: url(../images/incident-note.png) no-repeat;
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.views-field-title {
+  font-weight: normal;
+  font-size: 110%;
+}
+
+.view-Incidents .views-field-title {
+  float: left;
+}
+.views-field-field-incident-description-value {
+  padding-top: 3px;
+}
+
+.views-field-field-incident-date-value {
+  color:#577482;
+  
+}
+.view-display-id-block_1 .views-field-field-incident-date-value {
+  float: left;
+}
+
+#panel-latest-incidents .view-content {
+	background-color: #3D545A;
+	border-bottom: 1px solid #6B777A;
+	
+}
+
+#panel-latest-incidents .views-row-even, #panel-latest-incidents .views-row-odd {
+	border-top: 1px solid #6B777A;
+	padding: 15px;
+}
+
+.views-row-odd, .views-row-even {
+  clear: both;
+  margin-bottom: 10px;
+}
+.views-field-view-node {
+  float: right;
+}
+.feed-icon img{
+  margin-top: 15px;
+  float: left;
+  border: none !important;
+}
+.style6 {
+  color: #FFF;
+}
+.style6 input {
+  color: #000;
+}
+#block-views-news_listing-block_2 {
+  background-color: #000;
+  border: 2px solid #c13b00;
+  padding: 10px;
+  margin-left: 10px;
+}
+#block-views-news_listing-block_2 h2{
+  font-size: 200%;
+}
+#block-views-news_listing-block_2 .views-field-created {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 80%;
+  color: #577482;
+}
+#panel-latest-news .pane-content{
+  background-color: #276F89;
+  padding: 15px;
+  clear: both;
+}
+#panel-latest-news .views-field-title {
+  font-size: 150%;
+}
+#join_donate {
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+/** IMAGES **/
+
+.image-caption
+{
+	color: #fff;
+}
+
+.views-view-grid td
+{
+	vertical-align: top;
+	padding-top: 20px;
+}
+
+.views-view-grid h3
+{
+	vertical-align: top;
+	margin: 10px 0;
+}
+
+.views-view-grid .image-caption
+{
+	vertical-align: top;
+	font-size:0.85em;
+	clear: both;
+}
+
+.field-field-news-image-ref
+{
+	float: right;
+}
+
+.view-display-id-page_1 .views-row
+{
+	border-bottom: 1px solid #6B777A;
+	padding: 10px 0 20px 0;
+	clear: both;
+}

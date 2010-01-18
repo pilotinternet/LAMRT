@@ -1,0 +1,175 @@
+/* $Id: htmlelements.css,v 1.1.2.3 2009/03/13 01:09:16 psynaptic Exp $ */
+
+/* Global */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  padding-bottom: 0.4em;
+}
+
+/* Tables */
+
+table, th, td {
+  line-height: 1.35em;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+th, td {
+  padding: 2px;
+}
+
+/* Blocks */
+
+.block .content {
+  margin-bottom: 1em;
+}
+
+.block ul {
+  padding: 0;
+  margin-left: 10px;
+}
+
+.block ul li {
+  margin: 0;
+}
+
+.block #user-login-form ul {
+  margin-left: 0;
+}
+
+/* Boxes */
+
+#comments .comment .content {
+  padding: 1em;
+}
+
+/* Messages */
+
+.messages,
+.help {
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.messages ul {
+  margin: 0;
+}
+
+/* Nodes */
+
+.node .content {
+  padding-bottom: 1em;
+}
+
+/* Comments */
+
+#comments {
+  margin: 1em 0;
+}
+
+.comment {
+  margin-bottom: 3em;
+  padding-top: 3em;
+}
+
+#centre .comment .content {
+  margin: 1em;
+  padding: 0;
+}
+
+/* Forms */
+
+select {
+  font-family: inherit;
+}
+
+.form-text, textarea, .resizable-textarea,
+html.js .resizable-textarea textarea {
+  font-size: 1em;
+  overflow: visible;
+}
+
+.fieldset-wrapper .description {
+  margin: 0 0 1em 0;
+}
+
+.form-item input.error {
+  padding: 2px;
+}
+
+/* Lists */
+
+ul, ol {
+  color: #FFF;
+  padding-left: 2.5em;
+  margin-bottom: 1.5em;
+}
+
+li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul.links li {
+  padding-left: 0;
+}
+
+li.leaf,
+li.expanded,
+li.collapsed,
+ul.menu li {
+  padding: 0;
+  margin: 0;
+}
+
+ul.menu li a {
+  display: block;
+}
+
+#autocomplete li {
+  margin: 0;
+}
+
+dd {
+  margin-left: 1em;
+}
+
+/* Drupal */
+
+.meta {
+  margin-bottom: 1em;
+}
+
+html.js fieldset.collapsible .fieldset-wrapper {
+  overflow: visible;
+}
+
+html.js fieldset.collapsed {
+  border: none;
+}
+
+/* Admin */
+
+div.admin .left,
+div.admin .right {
+  margin: 0;
+}
+
+div.admin-panel .body {
+  padding: 0;
+}
+
+th {
+  color: #FFF;
+}
+#attachments a:link, #attachments a:visited {
+  color: #001827;
+}

@@ -1,0 +1,86 @@
+/* $Id: color.css,v 1.1.2.7 2009/03/13 00:51:31 psynaptic Exp $ */
+
+/* Global */
+
+body {
+  background-color: #577482;
+}
+
+body, table, td {
+  color: #494949;
+}
+
+input, textarea, select {
+  color: #494949;
+}
+
+a:link, a:visited {
+  color: #FFF;
+}
+
+a:hover {
+  color: #5A7E99;
+}
+
+li a.active {
+  color: #FFF;
+}
+
+tr.odd {
+  background-color: #EFF5FF;
+}
+
+tr.even {
+  background-color: #FFF;
+}
+
+fieldset {
+  border: 2px solid #DDD;
+}
+
+/* Messages */
+
+.status {
+  border: 1px solid #92DA97;
+  background-color: #CDFFD1;
+}
+
+.help {
+  border: 1px solid #369;
+  background-color: #D2D9FF;
+}
+
+.notice {
+  border: 1px solid #C9CB55;
+  background-color: #FFFDB5;
+}
+
+div.error {
+  border: 1px solid #F88;
+}
+
+div.error,
+tr.error {
+  background-color: #FCC;
+  color: #494949;
+}
+
+/* Nodes */
+
+.submitted {
+  color: #777;
+}
+
+/* Comments */
+
+.comment {
+  border-top: 1px solid #DDD;
+}
+
+/* Forms */
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #F88;
+}

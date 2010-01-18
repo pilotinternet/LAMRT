@@ -1,0 +1,144 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Helper functions for data importation from the old site.
+ */
+
+/**
+ * Implementation of hook_migrate_prepare_node(). 
+ * 
+ * Note: previously called hook_migrate_destination_prepare_node() 
+ * but no longer - see: http://drupal.org/node/552928
+ * 
+ * @param &$node
+ *   Reference to the node object.
+ * @param $tblinfo
+ *   
+ * @param $row
+ *   The row object containing the imported row data.
+ */
+function lamrt_import_migrate_prepare_node(&$node, $tblinfo, $row) {
+  if ($node->type == 'incident' && $tblinfo->description == 'incidents_source') {
+    // The location data sometimes contains multiple terms separated by <br> or
+    // &amp; - split these out for import.
+    if (!empty($row->incidents_source_location)) {
+      //foreach (preg_split('/<br>|&amp;/', $row->incidents_source_location) as $location) {
+      //}
+      $location = str_replace(array('<br>', '&amp;', ', &amp;'), array(',',',',','), $row->incidents_source_location);
+      unset($node->taxonomy);
+      $node->taxonomy['tags'][2] = $location;
+    }
+
+    // Because we've blasted $node->taxonomy, add back the type term.
+    if (!empty($row->incidents_source_type)) {
+      $node->taxonomy['tags'][1] = $row->incidents_source_type;
+    }
+
+    // Get the date of the incident.
+    $incident_timestamp = strtotime($row->incidents_source_date);
+    // We need the date, check we can convert it to a timestamp.
+    if ($incident_timestamp === FALSE) {
+      watchdog('lamrt_watchdog', t('Failed to get timestamp from incoming incident date.'));  
+      return;
+    }
+
+    $incident_year = date('Y', $incident_timestamp);
+    $incident_day = date('d', $incident_timestamp);
+
+    // Manually create the title for imported incident nodes, auto_nodetitle is
+    // taking care of new nodes but didn't seem to work with the import. 
+    $node->title = 'Incident Report';
+    if (!empty($row->incidents_source_incident_id)) {
+      $node->title .= ' #' . $row->incidents_source_incident_id;
+    }
+
+    if (!empty($incident_year)) {
+      $node->title .= ' ' . $incident_year;
+    }
+    
+    // Images.
+    // We have a field on the import $row->media which contains img tags, 
+    // extract the filenames, loop through them checking the files exist on the
+    // old site (located at sites/default/files/lamrt_old), create the image
+    // node(s) and set them as node references
+    $row->incidents_source_media = trim($row->incidents_source_media);
+    if (!empty($row->incidents_source_media)) {
+      // Gather the image filenames, sample below, my regex force was weak so
+      // I resorted to nasty brittle code :(
+      // <img src=\00510b.jpg\" /><img src=\""00510a.jpg\"" />"""
+      $media = str_replace(array('/', '\\', '"', '<img src=', '>'), array('', '', '', '', ''), $row->incidents_source_media);
+      $images = explode(' ', $media);
+
+      // Remove empty values from the array.
+      $images = array_filter($images);
+
+      // Iterate through the images creating image nodes.
+      module_load_include('inc', 'node', 'node.pages');
+      $image_count = 1;
+      foreach (array_values($images) as $image) {
+        // Path to the old site (local and live).
+        $file_path = '/Applications/MAMP/htdocs/lamrt/sites/default/files/lamrt_old/' . $image;
+        //$file_path = '/var/www/lamrt/sites/default/files/lamrt_old/' . $image;
+
+        // Check we have the file.
+        if (file_exists($file_path)) {
+          // Start building a node object.
+          $image_node = new stdClass();
+          $image_node->type = 'image';
+          node_object_prepare($image_node);
+
+          // Build a title.
+          $title = 'Incident image';
+          if (!empty($row->incidents_source_incident_id)) {
+            $title = 'Incident #' . $row->incidents_source_incident_id . ' image ' . $image_count;
+            $image_count++;
+            if (!empty($incident_year)) {
+              $title .= ' ' . $incident_year;
+            }
+          }
+
+          $image_node->title = $title;
+
+          // Term will be 'Incident', (local and live).
+          //$image_node->taxonomy[2] = 9;
+          $image_node->taxonomy[4] = 5;
+
+          // Image file, oopy the file to sites/default/files/images, cast the
+          // file object to an array and add it to the node.
+          $file = new stdClass();
+          $size = filesize($file_path);
+          file_copy($file_path, 'sites/default/files/images');
+          $file->filename = $image;
+          $file->filepath = $file_path;
+          $file->filemime = file_get_mimetype($image);
+          $file->list = variable_get('upload_list_default', TRUE);
+          $file->filesize = $size;
+          $file->weight = mt_rand(0,10);
+       
+          // If we made it this far it's safe to record this file in the
+          // database.
+          db_query("INSERT INTO {files} (uid, filename, filepath, filemime, filesize, status, timestamp) VALUES (%d, '%s', '%s', '%s', %d, %d, %d)", 1, $file->filename, $file->filepath, $file->filemime, $file->filesize, FILE_STATUS_TEMPORARY, time());
+          $file->fid = db_last_insert_id('files', 'fid');
+          $_SESSION['upload_files'][$file->fid] = $file;
+
+          // Cast the file object to an array and add it to the node.
+          $image_node->field_image[] = (array) $file; 
+
+          // Finally save the image node.
+          node_save($image_node);
+
+          // Set the image node in the node reference field on the current node
+          // we're importing.
+          $node->field_images[]['nid'] = $image_node->nid;
+        }
+        else {
+          // We don't have a file so create an entry in watchdog for manual
+          // checking.
+          watchdog('lamrt_import', t('Missing image !image for incident #!incident_number in year !year.', array('!image' => $image, '!incident_number' => $row->incidents_source_incident_id, '!year' => $incident_year)));
+        }
+      }
+    }
+  }
+}

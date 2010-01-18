@@ -1,0 +1,8 @@
+; $Id$
+name = Geo Ordnance Survey field
+description = Provides an CCK widget to input Ordnance Survey National Grid reference, and store it as a Lat/Long
+dependencies[] = content
+dependencies[] = geo
+dependencies[] = geo_field
+package = Geo
+core = 6.x

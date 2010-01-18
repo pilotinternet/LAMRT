@@ -1,0 +1,6 @@
+widget default value handling?
+
+critical
+--------
+machine readable name of geo field?
+

@@ -1,0 +1,90 @@
+/* $Id: style.css,v 1.1.2.11 2009/03/13 00:58:30 psynaptic Exp $ */
+
+/* Add your custom CSS here */
+
+#join_donate
+{
+/*	clear:both;*/
+}
+
+#join_donate ul
+{
+	padding: 0;
+	margin: 0;
+}
+
+#join_donate li
+{
+	list-style:none;
+	display:block;
+	float: left;
+	margin: 0;
+}
+
+#join_donate li a
+{
+	display:block; 
+	width: 210px;
+	text-align:center;
+	padding: 10px 0;
+	text-transform:uppercase;
+	background: #AB0606 url("../images/join_button_bk.png") repeat-x;
+	border: 1px solid #fff;
+	text-decoration:none;
+}
+
+#join_donate li.last
+{
+	margin-left: 20px;
+}
+
+/** 2 COL PANEL OVERIDE */
+
+/* $Id: twocol.css,v 1.1.2.1 2008/12/16 21:27:58 merlinofchaos Exp $ */
+
+.panel-2col { 
+/*  overflow: hidden;  */
+}
+
+.panel-2col .panel-col-first { 
+  float: left; 
+  width: 220px; 
+}
+* html .panel-2col .panel-col-first {
+  width: 220px;
+  padding-right: 20px;
+}
+
+.panel-2col .panel-col-first .inside { 
+  margin: 0 20px 1em 0;
+
+}
+
+.panel-2col .panel-col-last { 
+  float: left; 
+  width: 460px; 
+}
+* html .panel-2col .panel-col-last {
+  width: 460px;
+}
+
+
+/** Steve Edits **/
+
+.imagecache-teaser_220 {
+  float: left;
+  clear: left; 
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.imagecache-homepage_teaser_205 {
+ float: left;
+margin-right: 5px;
+margin-bottom: 5px;
+}
+
+.views-row {
+  clear: left;
+  margin-top: 10px;
+}

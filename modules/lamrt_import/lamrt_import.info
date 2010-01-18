@@ -1,0 +1,5 @@
+; $Id$
+name = LAMRT Import
+description = Helper import functions (migrate etc) for importation of old site content.
+core = 6.x
+package = Custom

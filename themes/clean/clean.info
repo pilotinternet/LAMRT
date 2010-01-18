@@ -1,0 +1,37 @@
+; $Id: clean.info,v 1.1.2.5 2009/03/13 01:09:16 psynaptic Exp $
+
+name = Clean
+description = Lean, mean base theme with a focus on minimal implementation.
+core = 6.x
+engine = phptemplate
+
+regions[left]           = left sidebar
+regions[right]          = right sidebar
+regions[content_top]    = content top
+regions[content_bottom] = content bottom
+regions[header]         = header
+regions[footer]         = footer
+regions[closure_region] = closure
+
+features[] = name
+features[] = logo
+features[] = slogan
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
+stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/htmlelements.css
+stylesheets[all][] = css/typography.css
+stylesheets[all][] = css/color.css
+stylesheets[all][] = css/navigation.css
+stylesheets[all][] = css/fancy-dates.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/style-matt.css
+
+; Information added by drupal.org packaging script on 2009-03-16
+version = "6.x-1.2"
+core = "6.x"
+project = "clean"
+datestamp = "1237200914"
+

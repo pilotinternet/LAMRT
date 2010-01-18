@@ -1,0 +1,91 @@
+/* $Id: navigation.css,v 1.1.2.6 2009/03/13 01:09:16 psynaptic Exp $ */
+
+/* Primary/secondary links */
+
+#navigation {
+  margin-bottom: 1em;
+}
+
+.primary-links {
+  background-color: #369;
+  border-bottom: 4px solid #A6DD47;
+  line-height: 2;
+}
+
+.secondary-links {
+  background-color: #A6DD47;
+  line-height: 1.8;
+}
+
+.primary-links a,
+.secondary-links a {
+  padding: 0 1em;
+}
+
+.primary-links a:link,
+.primary-links a:visited {
+  color: #FFF;
+}
+
+.primary-links a:hover {
+  color: #FFF;
+}
+
+.secondary-links a:hover {
+  color: #494949;
+}
+
+.primary-links a.active {
+  color: #FFF;
+  border-bottom: 6px solid #A6DD47;
+}
+
+ul.primary-links li {
+  padding: 0;
+}
+
+/* Tabs */
+
+.tabs {
+  font-size: 0.9em;
+}
+
+ul.primary {
+  border: none;
+  padding: 0;
+  font-size: 0.9em;
+  margin: 0.5em 0 1em 0;
+}
+
+ul.primary li a:link,
+ul.primary li a:visited {
+  background-color: #BCD1FF;
+  color: #369;
+}
+
+ul.primary li a:hover,
+ul.primary li.active a:link,
+ul.primary li.active a:visited,
+ul.primary li a.active:hover {
+  background-color: #5A7E99;
+  color: #FFF;
+}
+
+ul.primary li a,
+ul.primary li a:hover,
+ul.primary li.active a {
+  border: none;
+  padding: 2px 4px;
+}
+
+ul.secondary {
+  padding: 0;
+  margin: 0 0 1em 0;
+  border: 0;
+}
+
+ul.secondary li {
+  padding: 0;
+  margin-right: 1em;
+  border: none;
+}

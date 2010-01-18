@@ -1,0 +1,41 @@
+<?php
+// $Id$
+// Notify CCK when this module is enabled, disabled, installed,
+// and uninstalled so CCK can do any necessary preparation or cleanup.
+/**
+* @file
+* Implementation of hook_install().
+*/
+function geo_osgb_install() {
+  drupal_load('module', 'content');
+  content_notify('install', 'geo_osgb');
+}
+
+/**
+* Implementation of hook_uninstall().
+*/
+function geo_osgb_uninstall() {
+  drupal_load('module', 'content');
+  content_notify('uninstall', 'geo_osgb');
+}
+
+/**
+* Implementation of hook_enable().
+*
+* Notify content module when this module is enabled.
+*/
+function geo_osgb_enable() {
+  drupal_load('module', 'content');
+  content_notify('enable', 'geo_osgb');
+}
+
+/**
+* Implementation of hook_disable().
+*
+* Notify content module when this module is disabled.
+*/
+function geo_osgb_disable() {
+  drupal_load('module', 'content');
+  content_notify('disable', 'geo_osgb');
+}
+?>
