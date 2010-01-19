@@ -36,7 +36,7 @@ projects[] = "tabs"
 projects[] = "token"
 projects[] = "tw"
 projects[] = "vertical_tabs"
-projects[] = "views"
+;projects[] = "views"  --- we use a patched version below ---
 projects[] = "views_attach"
 projects[] = "views_tabs"
 projects[] = "webform"
@@ -54,6 +54,6 @@ libraries[jquery_ui][download][url] = "http://jquery-ui.googlecode.com/files/jqu
 libraries[jquery_ui][directory_name] = jquery.ui
 libraries[jquery_ui][destination] = modules/jquery_ui
 
-; Patches
+; Patches - will be automagically applied to each project
 projects[views][version] ="2.8"
 projects[views][patch][] = "http://github.com/pilotinternet/LAMRT/raw/master/dev/viewsformsfix.patch" 
