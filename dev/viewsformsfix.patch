@@ -1,0 +1,12 @@
+--- includes/admin.inc	2010-01-19 14:49:26.000000000 +0000
++++ includes/admin.inc	2010-01-19 14:53:32.000000000 +0000
+@@ -895,7 +895,8 @@ function views_ui_edit_view_form_validat
+   $errors = $form_state['view']->validate();
+   if ($errors !== TRUE) {
+     foreach ($errors as $error) {
+-      form_set_error('', $error);
++// PATCH: to fix incompatibility with forms module. Galooph found solution
++//      form_set_error('', $error);
+     }
+   }
+ }
