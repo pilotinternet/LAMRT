@@ -1,10 +1,11 @@
 ; This is the makefile for the codebase for lamrt.org.uk
-; run it using 'drush make lamrt.org.uk'
+; run it using 'drush make lamrt.make'
+; this just builds the codebase - you then need to clone the repo with git
+; repo should be cloned to sites/lamrt.org.uk
 
 core = 6.x
 
-;this makefile is to be pulled in via a toplevel makefile so drupal is done
-;projects[] = "drupal"
+projects[] = "drupal"
 
 ; Modules
 projects[] = "admin_menu"
@@ -13,8 +14,7 @@ projects[] = "advanced_help"
 projects[] = "auto_nodetitle"
 projects[] = "better_formats"
 projects[] = "ctools"
-projects[date][subdir] = "date"
-
+projects[] = "date"
 projects[] = "devel"
 projects[] = "filefield"
 projects[] = "geo"
@@ -52,4 +52,5 @@ libraries[tinymce][directory_name] = "tinymce"
 libraries[jquery_ui][download][type] = "get"
 libraries[jquery_ui][download][url] = "http://jquery-ui.googlecode.com/files/jquery.ui-1.6.zip"
 libraries[jquery_ui][directory_name] = jquery.ui
-libraries[jquery_ui][destination] = modules/jquery_ui 
+libraries[jquery_ui][destination] = modules/jquery_ui
+ 
