@@ -7,12 +7,13 @@ core = 6.x
 
 projects[] = "drupal"
 
-; Modules - into sites/all/modules
+; Modules - into sites/all/modules ==============================================
 projects[] = "admin_menu"
 projects[] = "adminrole"
 projects[] = "advanced_help"
 projects[] = "auto_nodetitle"
 projects[] = "better_formats"
+projects[] = "cck"
 projects[] = "ctools"
 projects[] = "date"
 projects[] = "devel"
@@ -25,6 +26,7 @@ projects[] = "jquery_ui"
 projects[] = "lightbox2"
 projects[] = "mapstraction"
 projects[] = "migrate"
+projects[] = "migrate_extras"
 projects[] = "noderef_image_helper"
 projects[] = "openlayers"
 projects[] = "panels"
@@ -36,15 +38,15 @@ projects[] = "tabs"
 projects[] = "token"
 projects[] = "tw"
 projects[] = "vertical_tabs"
-;projects[] = "views"  --- we use a patched version below ---
+;projects[] = "views"  -------- We now use a patched version below -------
 projects[] = "views_attach"
 projects[] = "views_tabs"
 projects[] = "webform"
 projects[] = "wysiwyg"
 
-; Themes - we only need a custom theme which is in the git repo
+; Themes - we only need a custom theme which is in the git repo ====================
 
-; Libraries - into /sites/all/libraries unless specified
+; Libraries - into /sites/all/libraries unless specified ===========================
 libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://downloads.sourceforge.net/project/tinymce/TinyMCE/3.2.7/tinymce_3_2_7.zip"
 libraries[tinymce][directory_name] = "tinymce" 
@@ -54,6 +56,10 @@ libraries[jquery_ui][download][url] = "http://jquery-ui.googlecode.com/files/jqu
 libraries[jquery_ui][directory_name] = jquery.ui
 libraries[jquery_ui][destination] = modules/jquery_ui
 
-; Patches - will be automagically applied to each project
+
+; Patches ==========================================================================
+
+; Patched Views - this fixes the incompatibility with forms module 
+; See http://mountain.pilotinternet.com/development/node/101
 projects[views][version] ="2.8"
 projects[views][patch][] = "http://github.com/pilotinternet/LAMRT/raw/master/dev/viewsformsfix.patch" 
