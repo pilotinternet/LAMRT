@@ -56,6 +56,7 @@ libraries[jquery_ui][download][url] = "http://jquery-ui.googlecode.com/files/jqu
 libraries[jquery_ui][directory_name] = jquery.ui
 libraries[jquery_ui][destination] = modules/jquery_ui
 
+
 ; Patches ==========================================================================
 
 ; Patched Views - this fixes the incompatibility with forms module 

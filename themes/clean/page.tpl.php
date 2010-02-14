@@ -11,6 +11,12 @@
   <?php print $scripts ?>
   <!--[if IE]><link rel="stylesheet" href="<?php print $path ?>ie.css" type="text/css"><![endif]-->
   <!--[if lte IE 6]><link rel="stylesheet" href="<?php print $path ?>ie6.css" type="text/css"><![endif]-->
+
+
+  <!-- Temporary include of Hitby's remote css file during dev -->
+  <link rel="stylesheet" href="http://www.hookdesignalter.co.uk/lamrthitby.css" type="text/css" />
+
+
 </head>
 
 <body class="<?php print $body_classes ?>">
