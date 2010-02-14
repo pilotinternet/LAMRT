@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * node_navigation.module
+ *
+ * This module adds a link to incident type nodes to enable simple forwards and
+ * backwards navigation through the nodes.
+ */
+
+/**
+ * Implementation of hook_link().
+ */
+function node_navigation_link($type, $object, $teaser = FALSE) {
+  if (isset($object->type) && $object->type == 'incident') {
+    $links = array();
+    $this_date = isset($object->field_incident_date[0]['value']) ? $object->field_incident_date[0]['value'] : NULL;
+    if ($this_date) {
+      $prev_nid = db_result(db_query("SELECT n.nid FROM {node} n LEFT JOIN {content_type_incident} i ON i.nid = n.nid WHERE n.type = 'incident' AND n.status <> 0 AND i.field_incident_date_value < '%s' ORDER BY i.field_incident_date_value DESC LIMIT 1", $this_date));
+      $next_nid = db_result(db_query("SELECT n.nid FROM {node} n LEFT JOIN {content_type_incident} i ON i.nid = n.nid WHERE n.type = 'incident' AND n.status <> 0 AND i.field_incident_date_value > '%s' ORDER BY i.field_incident_date_value ASC LIMIT 1", $this_date));
+
+      if ($prev_nid) {
+        $links['prev_incident_node'] = array(
+          'href' => 'node/' . $prev_nid,
+          'title' => t('See the previous incident'),
+        );
+      }
+
+      if ($next_nid) {
+        $links['next_incident_node'] = array(
+          'href' => 'node/' . $next_nid,
+          'title' => t('See the next incident'),
+        );
+      }
+    }
+
+    if ($links) {
+      return $links;
+    }
+  }
+}

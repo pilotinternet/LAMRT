@@ -1,0 +1,5 @@
+; $Id$
+name = Node Navigation
+description = Adds a link to incident type nodes to allow navigation backwards and forwards.
+core = 6.x
+package = Custom
